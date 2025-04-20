@@ -17,7 +17,7 @@ export const register = async (req, res) => {
   }
 };
 
-export const login = async (req, res) => {
+export const login = async (req, res, next) => {
   try {
     const result = await loginUser(req.body);
 
@@ -34,7 +34,6 @@ export const login = async (req, res) => {
       token: result.token
     });
   } catch (error) {
-    console.error(`error: ${error.message}`);
-    res.status(500).json("Something went wrong");
+    next(error);
   }
 };

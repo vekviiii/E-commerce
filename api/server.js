@@ -4,6 +4,7 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import productRoutes from './routes/productRoutes.js'
 import authRoutes from './routes/authRoutes.js'
+import errorHandler from './middleware/errorHandler.js'
 
 const app = express()
 
@@ -13,13 +14,15 @@ connection()
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
-
 app.use(express.json())
+
 
 app.use('/api', [productRoutes, authRoutes])
 
-// Routes
 app.get("/", (req, res) => res.send("Connected"))
+
+// global error handler
+app.use(errorHandler);
 
 // Server
 const PORT = process.env.PORT || 3000

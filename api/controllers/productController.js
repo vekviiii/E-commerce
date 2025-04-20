@@ -34,7 +34,7 @@ export const DeleteProduct = async (req, res) => {
   }
 };
 
-export const UpdateProduct = async (req, res) => {
+export const UpdateProduct = async (req, res) => {k
   try {
     const { id } = req.params;
     const updateData = req.body;
