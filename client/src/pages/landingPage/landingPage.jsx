@@ -58,10 +58,6 @@ const LandingPage = () => {
         <Box display={"flex"} justifyContent={"center"} sx={{ my: 4 }}>
           <CircularProgress />
         </Box>
-      ) : error ? (
-        <Typography color="error" textAlign={"center"}>
-          error: {error}
-        </Typography>
       ) : products.length > 0 ? (
         <Suspense
           fallback={

@@ -29,11 +29,11 @@ export const login = async (req, res, next) => {
       message: "Login successful",
       user: {
         name: result.user.name,
-        email: result.user.email
+        email: result.user.email,
       },
-      token: result.token
+      token: result.token,
     });
   } catch (error) {
-    next(error);
+    res.status(400).json(`error: ${error.message}`);
   }
 };

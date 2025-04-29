@@ -1,5 +1,0 @@
-# Ignore specific files inside api/
-api/node_modules/
-api/.env
-api/logs/
-api/debug.log

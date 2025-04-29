@@ -6,7 +6,7 @@ import authMiddleware from '../middleware/authMiddleware.js'
 const route = Router()
 
 //GET
-route.get('/products', GetProduct)
+route.get('/products', authMiddleware, GetProduct)
 route.get('/product/:id', GetProductById)
 route.get('/getKey', getKey)
 
