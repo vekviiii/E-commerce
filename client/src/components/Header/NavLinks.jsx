@@ -6,11 +6,11 @@ const NavLinks = () => {
     <nav className="nav-bar">
       <ul>
         <li>
-          <Link>New & Features</Link>
+          <Link className="link">New & Features</Link>
           <div className="custom-nav-link">New & Features</div>
         </li>
         <li>
-          <Link>Men</Link>
+          <Link className="link">Men</Link>
           <div className="custom-nav-link">
             <ul>
               <li>
@@ -44,7 +44,7 @@ const NavLinks = () => {
           </div>
         </li>
         <li>
-          <Link>Women</Link>
+          <Link className="link">Women</Link>
           <div className="custom-nav-link">
             <ul>
               <li>
@@ -79,7 +79,7 @@ const NavLinks = () => {
           </div>
         </li>
         <li>
-          <Link>Kids</Link>
+          <Link className="link">Kids</Link>
           <div className="custom-nav-link">
             <ul>
               <li>
@@ -115,7 +115,7 @@ const NavLinks = () => {
           </div>
         </li>
         <li>
-          <Link>Sale</Link>
+          <Link className="link">Sale</Link>
           <div className="custom-nav-link">
             <ul>
               <li>

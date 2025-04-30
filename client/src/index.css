@@ -1,9 +1,25 @@
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
 
+@font-face {
+    font-family: "adihausdin_cn";
+    src: url('./assets/fonts/AdihausDIN/adihausdin_cn.ttf');
+}
+
+@font-face {
+    font-family: "adihausdin_regular";
+    src: url('./assets/fonts/AdihausDIN/adihausdin_regular.otf');
+}
+
+@font-face {
+    font-family: "adihausdin_bold";
+    src: url('./assets/fonts/AdihausDIN/adihausdin_bold.otf');
+}
+
 body
 {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    font-family: "adihausdin_regular", sans-serif;
 }

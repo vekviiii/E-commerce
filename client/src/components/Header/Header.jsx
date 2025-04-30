@@ -31,7 +31,9 @@ const Header = () => {
         justifyContent={"space-between"}
         boxShadow={1}
       >
-        <img src={Logo} height={LogoHeight} width={LogoHeight} alt="Logo" />
+        <Link to={"/"} className="link-style">
+          <img src={Logo} height={LogoHeight} width={LogoHeight} alt="Logo" />
+        </Link>
         <NavLinks />
         <Box
           display={"flex"}
@@ -39,14 +41,7 @@ const Header = () => {
           alignItems={"center"}
           marginInline={2}
         >
-          <Link
-            to={"/login"}
-            style={{
-              cursor: "pointer",
-              textDecoration: "none",
-              color: "inherit",
-            }}
-          >
+          <Link to={"/login"} className="link-style">
             {userName ? (
               <Box
                 borderRadius={25}
@@ -56,7 +51,9 @@ const Header = () => {
                 display={"flex"}
                 justifyContent={"center"}
                 alignItems={"center"}
-              >{userName.charAt(0)}</Box>
+              >
+                {userName.charAt(0)}
+              </Box>
             ) : (
               <Person fontSize="large" />
             )}
