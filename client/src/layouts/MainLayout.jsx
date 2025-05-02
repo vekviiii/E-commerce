@@ -8,9 +8,9 @@ const MainLayout = () => {
   return (
     <Box display={'flex'} flexDirection={'column'} minHeight={'100dvh'} margin={0}>
         <Header/>
-        <Container component={'main'} sx={{ flexGrow: 1, py: 4}}>
+        <div className="custom-container con py-2">
             <Outlet/>
-        </Container>
+        </div>
         <Footer/>
     </Box>
   )

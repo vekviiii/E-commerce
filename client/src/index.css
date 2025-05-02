@@ -2,24 +2,33 @@
 @import "slick-carousel/slick/slick-theme.css";
 
 @font-face {
-    font-family: "adihausdin_cn";
-    src: url('./assets/fonts/AdihausDIN/adihausdin_cn.ttf');
+  font-family: "adihausdin_cn";
+  src: url("./assets/fonts/AdihausDIN/adihausdin_cn.ttf");
 }
 
 @font-face {
-    font-family: "adihausdin_regular";
-    src: url('./assets/fonts/AdihausDIN/adihausdin_regular.otf');
+  font-family: "adihausdin_regular";
+  src: url("./assets/fonts/AdihausDIN/adihausdin_regular.otf");
 }
 
 @font-face {
-    font-family: "adihausdin_bold";
-    src: url('./assets/fonts/AdihausDIN/adihausdin_bold.otf');
+  font-family: "adihausdin_bold";
+  src: url("./assets/fonts/AdihausDIN/adihausdin_bold.otf");
 }
 
-body
-{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: "adihausdin_regular", sans-serif;
+body {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "adihausdin_regular", sans-serif;
+}
+
+@media (min-width: 768px) {
+  .custom-container {
+    width: 100%;
+    max-width: 1920px;
+    padding-inline: 1rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }

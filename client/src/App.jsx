@@ -1,5 +1,5 @@
 import React from "react";
-import LandingPage from "./pages/landingPage/landingPage";
+import HomePage from "./pages/Home/homePage";
 import SuccessPage from "./pages/successPage/successPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MainLayout from "./layouts/mainLayout";
@@ -17,7 +17,7 @@ function App() {
         {/* MainLayout */}
         <Route element={<MainLayout />}>
           <Route path="/paymentSuccess" element={<SuccessPage />} />
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/" element={<HomePage />} />
         </Route>
         {/* LoginLayout */}
         <Route element={<LoginLayout />}>
