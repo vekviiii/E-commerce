@@ -67,75 +67,77 @@ const SignUpPage = () => {
 
   return (
     <>
-      <h1 style={{ textAlign: "center" }}>Sign Up</h1>
-      <div className="signup-container">
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          style={{ display: "flex", flexDirection: "column", gap: "20px" }}
-        >
-          <TextField
-            name="name"
-            label="Enter name"
-            variant="outlined"
-            {...register("name", validationRules.name)}
-            error={!!errors.name}
-            helperText={errors.name?.message}
-          />
-          <TextField
-            name="email"
-            label="Enter email"
-            variant="outlined"
-            {...register("email", validationRules.email)}
-            error={!!errors.email}
-            helperText={errors.email?.message}
-          />
-          <TextField
-            name="password"
-            label="Enter password"
-            variant="outlined"
-            type={showPassword ? "text" : "password"}
-            {...register("password", validationRules.password)}
-            error={!!errors.password}
-            helperText={errors.password?.message}
-            slotProps={{
-              input: {
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <div
-                      aria-label={
-                        showPassword ? "Hide password" : "Show password"
-                      }
-                      onClick={() => setShowPassword((prev) => !prev)}
-                    >
-                      {showPassword ? <VisibilityOff /> : <Visibility />}
-                    </div>
-                  </InputAdornment>
-                ),
-              },
-            }}
-          />
-          <TextField
-            name="phone"
-            label="Enter phone"
-            variant="outlined"
-            {...register("phone", validationRules.phone)}
-            error={!!errors.phone}
-            helperText={errors.phone?.message}
-          />
-          <TextField
-            name="phone extension"
-            label="Enter phone extension"
-            variant="outlined"
-            {...register("phoneextension", validationRules.phoneExtension)}
-            error={!!errors["phoneextension"]}
-            helperText={errors["phoneextension"]?.message}
-          />
-          <div style={{ textAlign: "center" }}>
-            <Button type="submit" variant="outlined" color="success">
-              Sign Up
-            </Button>
-          </div>
-        </form>
+      <h1 style={{ textAlign: "center", marginBlockStart: "1rem" }}>Sign Up</h1>
+      <div className="d-grid">
+        <div className="signup-container">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            style={{ display: "flex", flexDirection: "column", gap: "20px" }}
+          >
+            <TextField
+              name="name"
+              label="Enter name"
+              variant="outlined"
+              {...register("name", validationRules.name)}
+              error={!!errors.name}
+              helperText={errors.name?.message}
+            />
+            <TextField
+              name="email"
+              label="Enter email"
+              variant="outlined"
+              {...register("email", validationRules.email)}
+              error={!!errors.email}
+              helperText={errors.email?.message}
+            />
+            <TextField
+              name="password"
+              label="Enter password"
+              variant="outlined"
+              type={showPassword ? "text" : "password"}
+              {...register("password", validationRules.password)}
+              error={!!errors.password}
+              helperText={errors.password?.message}
+              slotProps={{
+                input: {
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <div
+                        aria-label={
+                          showPassword ? "Hide password" : "Show password"
+                        }
+                        onClick={() => setShowPassword((prev) => !prev)}
+                      >
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </div>
+                    </InputAdornment>
+                  ),
+                },
+              }}
+            />
+            <TextField
+              name="phone"
+              label="Enter phone"
+              variant="outlined"
+              {...register("phone", validationRules.phone)}
+              error={!!errors.phone}
+              helperText={errors.phone?.message}
+            />
+            <TextField
+              name="phone extension"
+              label="Enter phone extension"
+              variant="outlined"
+              {...register("phoneextension", validationRules.phoneExtension)}
+              error={!!errors["phoneextension"]}
+              helperText={errors["phoneextension"]?.message}
+            />
+            <div style={{ textAlign: "center" }}>
+              <Button type="submit" variant="outlined" color="success">
+                Sign Up
+              </Button>
+            </div>
+          </form>
+        </div>
       </div>
     </>
   );

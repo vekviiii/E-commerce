@@ -39,9 +39,9 @@
   color: var(--theme-black);
 }
 
-.newletter-container input {
+/* .newletter-container input {
   color: white;
-}
+} */
 
 .css-1cmet5c-MuiInputBase-root-MuiInput-root::after {
   border-bottom: 2px solid white !important;

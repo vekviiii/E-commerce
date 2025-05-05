@@ -61,11 +61,6 @@ button.shrink:active
   color: var(--theme-black);
 }
 
-input
-{
-  padding: 10px 12px !important;
-}
-
 @media (min-width: 768px) {
   .custom-container {
     width: 100%;

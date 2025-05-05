@@ -48,53 +48,55 @@ const LoginPage = () => {
 
   return (
     <>
-      <h1 style={{ textAlign: "center" }}>Login</h1>
-      <div className="login-container">
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          style={{ display: "flex", flexDirection: "column", gap: "20px" }}
-        >
-          <TextField
-            name="email"
-            label="Email"
-            variant="outlined"
-            {...register("email", validationRules.email)}
-            error={!!errors.email}
-            helperText={errors.email?.message}
-          />
-          <TextField
-            name="password"
-            label="Password"
-            variant="outlined"
-            type={showPassword ? "text" : "password"}
-            {...register("password", validationRules.password)}
-            error={!!errors.password}
-            helperText={errors.password?.message}
-            slotProps={{
-              input: {
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton
-                      onClick={() => setShowPassword((prev) => !prev)}
-                      edge="end"
-                    >
-                      {showPassword ? <VisibilityOff /> : <Visibility />}
-                    </IconButton>
-                  </InputAdornment>
-                ),
-              },
-            }}
-          />
-          <span>{errorMessage}</span>
-          <div style={{ textAlign: "center" }}>
-            <Button type="submit" variant="outlined" color="success">
-              Login
-            </Button>
-          </div>
-        </form>
-        <Link to="/signup" className="text-center pt-3 ">
-          Sign Up ?
-        </Link>
+      <h1 style={{ textAlign: "center", marginBlockStart: "1rem" }}>Login</h1>
+      <div className="d-grid">
+        <div className="login-container">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            style={{ display: "flex", flexDirection: "column", gap: "20px" }}
+          >
+            <TextField
+              name="email"
+              label="Email"
+              variant="outlined"
+              {...register("email", validationRules.email)}
+              error={!!errors.email}
+              helperText={errors.email?.message}
+            />
+            <TextField
+              name="password"
+              label="Password"
+              variant="outlined"
+              type={showPassword ? "text" : "password"}
+              {...register("password", validationRules.password)}
+              error={!!errors.password}
+              helperText={errors.password?.message}
+              slotProps={{
+                input: {
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        onClick={() => setShowPassword((prev) => !prev)}
+                        edge="end"
+                      >
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                },
+              }}
+            />
+            <span>{errorMessage}</span>
+            <div style={{ textAlign: "center" }}>
+              <Button type="submit" variant="outlined" color="success">
+                Login
+              </Button>
+            </div>
+          </form>
+          <Link to="/signup" className="text-center pt-3 ">
+            Sign Up ?
+          </Link>
+        </div>
       </div>
     </>
   );
