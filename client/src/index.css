@@ -16,6 +16,11 @@
   src: url("./assets/fonts/AdihausDIN/adihausdin_bold.otf");
 }
 
+:root 
+{
+  --theme-black: black;
+}
+
 body {
   margin: 0px;
   padding: 0px;
@@ -23,11 +28,44 @@ body {
   font-family: "adihausdin_regular", sans-serif;
 }
 
+.adihausdin_bold
+{
+  font-family: "adihausdin_bold";
+  font-size: 30px;
+}
+
+.gasoek-one-regular {
+  font-family: "Gasoek One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+button.shrink
+{
+  background-color: var(--theme-black);
+  color: white;
+  padding: 5px 20px;
+  border: none;
+  transition: all 0.1s ease-in-out;
+}
+
+button.shrink:hover
+{
+  transform: scale(0.9);
+}
+
+button.shrink:active
+{
+  transform: scale(0.5);
+  background-color: white;
+  color: var(--theme-black);
+}
+
 @media (min-width: 768px) {
   .custom-container {
     width: 100%;
     max-width: 1920px;
-    padding-inline: 1rem;
+    padding-inline: 1.5rem;
     margin-right: auto;
     margin-left: auto;
   }

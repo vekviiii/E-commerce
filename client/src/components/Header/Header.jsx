@@ -53,14 +53,14 @@ const Header = () => {
 
   return (
     <>
-      <Box sx={{ bgcolor: "#fff" }} boxShadow={1} position={"sticky"} top={0}>
+      <Box sx={{ bgcolor: "#fff" }} boxShadow={1} position={"sticky"} top={0} zIndex={1}>
         <Box
           className="custom-container"
           display={"flex"}
           justifyContent={"space-between"}
         >
-          <Link to={"/"} className="link-style logo-start">
-            <img src={Logo} className="ps-1" height={55} width={48} alt="Logo" />
+          <Link to={"/"} className="logo-start">
+            <img src={Logo} height={55} width={45} alt="Logo" />
           </Link>
           <NavLinks />
           <Box
@@ -68,7 +68,7 @@ const Header = () => {
             justifyContent={"space-between"}
             alignItems={"center"}
           >
-            <Link to={"/login"} className="link-style pe-1">
+            <Link to={"/login"}>
               {userName ? (
                 <Box
                   borderRadius={25}
