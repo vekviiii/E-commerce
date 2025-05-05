@@ -1,0 +1,48 @@
+.newsletter-placeholder input::placeholder {
+  font-family: "adihausdin_regular", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  color: black;
+}
+
+.newletter-container {
+  position: relative;
+  display: grid;
+  align-items: center;
+  background: linear-gradient(90deg, white, rgba(0, 0, 0, 0.2), white);
+  background-size: 200% 100%;
+  animation: newletter-container-animated 10s linear infinite;
+}
+
+@keyframes newletter-container-animated {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: 0% 0;
+  }
+}
+
+.newletter-container button.shrink {
+  padding: 10px 20px;
+  align-items: center;
+  background-color: #212529;
+}
+
+.newletter-container button.shrink:hover {
+  transform: scale(0.9);
+}
+
+.newletter-container button.shrink:active {
+  transform: scale(0.5);
+  background-color: white;
+  color: var(--theme-black);
+}
+
+.newletter-container input {
+  color: white;
+}
+
+.css-1cmet5c-MuiInputBase-root-MuiInput-root::after {
+  border-bottom: 2px solid white !important;
+}

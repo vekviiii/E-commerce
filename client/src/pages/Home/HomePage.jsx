@@ -12,7 +12,7 @@ const HomePage = () => {
       <Featured />
       <BestSellersTrending />
       <NewArrivals />
-      <LandingPage />
+      {/* <LandingPage /> */}
     </>
   );
 };
