@@ -1,5 +1,6 @@
 import { loginUser, registerUser } from "../services/authService.js";
 
+// Register
 export const register = async (req, res) => {
   try {
     const newUser = await registerUser(req.body);
@@ -17,6 +18,7 @@ export const register = async (req, res) => {
   }
 };
 
+// Login
 export const login = async (req, res, next) => {
   try {
     const result = await loginUser(req.body);
@@ -37,3 +39,22 @@ export const login = async (req, res, next) => {
     res.status(400).json(`error: ${error.message}`);
   }
 };
+
+// Logout
+export const logout = (req, res, next) => {
+  try {
+    const result = logoutUser();
+
+    res.status(200).json({
+      message: "Logout successful",
+    });
+  } catch (error) {
+    next(error)
+  }
+}
+
+// Profile Update
+
+// Password Reset
+
+// Email Verification

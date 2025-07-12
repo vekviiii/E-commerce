@@ -8,6 +8,9 @@ import {
 import { instance } from "../server.js";
 import crypto from "crypto";
 
+// PROTECTED CRUD WITH ADMIN ROUTES
+
+// Post Product
 export const PostProduct = async (req, res) => {
   try {
     const product = await createProduct(req.body);
@@ -17,6 +20,7 @@ export const PostProduct = async (req, res) => {
   }
 };
 
+// Get Product
 export const GetProduct = async (req, res) => {
   try {
     const product = await getProducts();
@@ -26,6 +30,7 @@ export const GetProduct = async (req, res) => {
   }
 };
 
+// Delete Product
 export const DeleteProduct = async (req, res) => {
   try {
     const deleted = await deleteProductById(req.params.id);
@@ -35,6 +40,7 @@ export const DeleteProduct = async (req, res) => {
   }
 };
 
+// Update Product
 export const UpdateProduct = async (req, res) => {
   k;
   try {
@@ -50,6 +56,7 @@ export const UpdateProduct = async (req, res) => {
   }
 };
 
+// Get Product By Id (slugs ???)
 export const GetProductById = async (req, res) => {
   try {
     const product = await getProductById(req.params.id);
@@ -64,6 +71,11 @@ export const GetProductById = async (req, res) => {
   }
 };
 
+// Get product by Category/Brand
+
+
+// Payment
+// Process Payment
 export const processPayment = async (req, res) => {
   try {
     // Open Razorpay Checkout

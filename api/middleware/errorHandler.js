@@ -3,7 +3,7 @@ const errorHandler = (err, req, res, next) => {
 
   const statusCode = res.statusCode !== 200 ? res.statusCode : 500;
 
-  res.status(statusCode).json("Something went wrong");
+  res.status(statusCode).json(`error: ${err.message}`);
 };
 
 export default errorHandler;
