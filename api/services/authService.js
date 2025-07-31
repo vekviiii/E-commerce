@@ -3,7 +3,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 export const registerUser = async (userData) => {
-  const { name, email, password, phone, phoneExtension } = userData;
+  const { name, email, password, phone, phoneExtension, role } = userData;
 
   const existingUser = await User.findOne({ email });
   if (existingUser) {
@@ -18,28 +18,60 @@ export const registerUser = async (userData) => {
     password: hashedPassword,
     phone,
     phoneExtension,
+    role
   });
 
   return await newUser.save();
 };
 
+// export const loginUser = async ({ email, password }) => {
+//   const user = await User.findOne({ email });
+
+//   if (!user || !(await bcrypt.compare(password, user.password))) {
+//     const error = new Error("Invalid email or password");
+//     error.statusCode = 401;
+//     throw error;
+//   }
+
+//   const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+//     expiresIn: process.env.JWT_EXPIRES_IN || "1d",
+//   });
+
+//   return {
+//     user: {
+//       id: user._id,
+//       name: user.name,
+//       email: user.email,
+//     },
+//     token,
+//   };
+// };
+
 export const loginUser = async ({ email, password }) => {
   const user = await User.findOne({ email });
 
-  if (!user) {
-    const error = new Error('Invalid email or password');
+  if (!user || !(await bcrypt.compare(password, user.password))) {
+    const error = new Error("Invalid email or password");
     error.statusCode = 401;
     throw error;
   }
 
-  const isMatch = await bcrypt.compare(password, user.password);
-  if (!isMatch) {
-    throw new Error("Invalid email or password");
-  }
-
-  const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRES_IN || "1d",
+  const accessToken = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+    expiresIn: "15m", // short-lived
   });
 
-  return { user, token };
+  const refreshToken = jwt.sign({ id: user._id }, process.env.REFRESH_SECRET, {
+    expiresIn: "7d", // long-lived
+  });
+
+  return {
+    user: {
+      id: user._id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
+    },
+    accessToken,
+    refreshToken,
+  };
 };

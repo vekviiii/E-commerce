@@ -1,8 +1,10 @@
 import {
   createProduct,
   deleteProductById,
+  getFilteredProducts,
   getProductById,
   getProducts,
+  searchProducts,
   updateProduct,
 } from "../services/productService.js";
 import { instance } from "../server.js";
@@ -21,12 +23,20 @@ export const PostProduct = async (req, res) => {
 };
 
 // Get Product
-export const GetProduct = async (req, res) => {
+export const GetProducts = async (req, res) => {
   try {
-    const product = await getProducts();
+    const { page, limit, sort, fields, ...filters } = req.query;
+
+    const isPaginated =
+      page || limit || sort || fields || Object.keys(filters).length > 0;
+
+    const product = isPaginated
+      ? await getFilteredProducts(req.query)
+      : await getProducts(); // your existing service for all products
+
     res.status(200).json(product);
   } catch (error) {
-    res.status(404).json(`error: ${error.message}`);
+    res.status(404).json({ error: error.message });
   }
 };
 
@@ -73,7 +83,6 @@ export const GetProductById = async (req, res) => {
 
 // Get product by Category/Brand
 
-
 // Payment
 // Process Payment
 export const processPayment = async (req, res) => {
@@ -106,20 +115,32 @@ export const paymentVerification = async (req, res) => {
       req.body;
 
     const body = razorpay_order_id + "|" + razorpay_payment_id;
-    const expectedSignature = crypto.createHmac('sha256', process.env.RAZOR_KEY_SECRET)
-    .update(body.toString()).digest("hex")
-    
-    if (expectedSignature === razorpay_signature) {
-      res.redirect(`http://localhost:5173/paymentSuccess?reference=${razorpay_payment_id}`)
-    }
-    else
-    {
-    res.status(404).json({
-      success: false
-    });
-    }
+    const expectedSignature = crypto
+      .createHmac("sha256", process.env.RAZOR_KEY_SECRET)
+      .update(body.toString())
+      .digest("hex");
 
+    if (expectedSignature === razorpay_signature) {
+      res.redirect(
+        `http://localhost:5173/paymentSuccess?reference=${razorpay_payment_id}`
+      );
+    } else {
+      res.status(404).json({
+        success: false,
+      });
+    }
   } catch (error) {
     res.status(500).json(`error : ${error.message}`);
+  }
+};
+
+// Search Product by keyword
+export const getSearchedProducts = async (req, res, next) => {
+  try {
+    const filters = req.query; // contains keyword, category, sort, etc.
+    const products = await searchProducts(filters);
+    res.status(200).json(products);
+  } catch (error) {
+    next(error);
   }
 };

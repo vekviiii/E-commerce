@@ -11,6 +11,7 @@ import cors from "cors";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import cookieParser from "cookie-parser";
 
 const app = express();
 
@@ -36,6 +37,7 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.json());
+app.use(cookieParser());
 
 app.use("/api", [productRoutes, authRoutes, uploadRoute]);
 

@@ -42,12 +42,18 @@ const UserSchema = new mongoose.Schema(
         message: (props) => `${props.value} is not a valid phone extension!`,
       },
     },
+    role: {
+      type: String,
+      enum: ["user", "admin"],
+      default: "user",
+    },
   },
+
   {
     timestamps: true,
   }
 );
 
-const User = mongoose.model('User', UserSchema);
+const User = mongoose.model("User", UserSchema);
 
 export default User;
