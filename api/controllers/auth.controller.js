@@ -1,4 +1,4 @@
-import { loginUser, registerUser } from "../services/authService.js";
+import { loginUser, registerUser } from "../services/auth.service.js";
 import { setAuthCookie, clearAuthCookie } from "../utils/setAuthCookie.js";
 import jwt from "jsonwebtoken";
 

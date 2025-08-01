@@ -1,17 +1,19 @@
-import "dotenv/config";
-import connection from "./config/db.js";
-import express from "express";
 import bodyParser from "body-parser";
-import productRoutes from "./routes/productRoutes.js";
-import uploadRoute from "./routes/uploadRoutes.js";
-import authRoutes from "./routes/authRoutes.js";
-import errorHandler from "./middleware/errorHandler.js";
-import Razorpay from "razorpay";
+import cookieParser from "cookie-parser";
 import cors from "cors";
+import "dotenv/config";
+import express from "express";
 import fs from "fs";
 import path from "path";
+import Razorpay from "razorpay";
 import { fileURLToPath } from "url";
-import cookieParser from "cookie-parser";
+import connection from "./config/db.js";
+import errorHandler from "./utils/errorHandler.js";
+import authRoutes from "./routes/auth.routes.js";
+import cartRoutes from "./routes/cart.routes.js";
+import wishlistRoutes from "./routes/wishlist.routes.js";
+import productRoutes from "./routes/product.routes.js";
+import uploadRoute from "./routes/upload.routes.js";
 
 const app = express();
 
@@ -39,7 +41,7 @@ app.use(bodyParser.json());
 app.use(express.json());
 app.use(cookieParser());
 
-app.use("/api", [productRoutes, authRoutes, uploadRoute]);
+app.use("/api", [productRoutes, authRoutes, uploadRoute, cartRoutes, wishlistRoutes]);
 
 app.get("/", (req, res) => res.send("Connected"));
 

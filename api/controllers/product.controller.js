@@ -6,7 +6,7 @@ import {
   getProducts,
   searchProducts,
   updateProduct,
-} from "../services/productService.js";
+} from "../services/product.service.js";
 import { instance } from "../server.js";
 import crypto from "crypto";
 

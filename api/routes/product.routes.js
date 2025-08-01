@@ -9,7 +9,7 @@ import {
   paymentVerification,
   getSearchedProducts,
   GetProducts,
-} from "../controllers/productController.js";
+} from "../controllers/product.controller.js";
 import authMiddleware from "../middleware/authMiddleware.js";
 import isAdmin from "../middleware/isAdmin.js";
 
