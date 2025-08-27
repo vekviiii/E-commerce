@@ -9,6 +9,7 @@ import Razorpay from "razorpay";
 import { fileURLToPath } from "url";
 import connection from "./config/db.js";
 import addressRoutes from "./routes/address.routes.js";
+import adminRoutes from "./routes/admin.routes.js";
 import authRoutes from "./routes/auth.routes.js";
 import cartRoutes from "./routes/cart.routes.js";
 import inventoryRoutes from "./routes/inventory.routes.js";
@@ -57,6 +58,7 @@ app.use("/api", [
   addressRoutes,
   inventoryRoutes,
   reviewRoutes,
+  adminRoutes,
 ]);
 
 app.get("/", (req, res) => res.send("Connected"));
