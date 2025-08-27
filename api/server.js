@@ -8,11 +8,12 @@ import path from "path";
 import Razorpay from "razorpay";
 import { fileURLToPath } from "url";
 import connection from "./config/db.js";
+import addressRoutes from "./routes/address.routes.js";
 import authRoutes from "./routes/auth.routes.js";
 import cartRoutes from "./routes/cart.routes.js";
+import inventoryRoutes from "./routes/inventory.routes.js";
 import orderRoutes from "./routes/order.routes.js";
 import paymentRoutes from "./routes/payment.routes.js";
-import addressRoutes from "./routes/address.routes.js";
 import productRoutes from "./routes/product.routes.js";
 import uploadRoute from "./routes/upload.routes.js";
 import wishlistRoutes from "./routes/wishlist.routes.js";
@@ -53,6 +54,7 @@ app.use("/api", [
   orderRoutes,
   paymentRoutes,
   addressRoutes,
+  inventoryRoutes,
 ]);
 
 app.get("/", (req, res) => res.send("Connected"));
