@@ -28,6 +28,18 @@ const productSchema = new mongoose.Schema(
       type: Boolean,
       default: true,
     },
+
+    // 🆕 Inventory fields
+    stock: {
+      type: Number,
+      required: true,
+      default: 0, // start with 0 until stocked
+      min: 0,
+    },
+    lowStockThreshold: {
+      type: Number,
+      default: 5, // triggers low stock alerts
+    },
   },
   {
     timestamps: true,

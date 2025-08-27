@@ -8,14 +8,15 @@ import path from "path";
 import Razorpay from "razorpay";
 import { fileURLToPath } from "url";
 import connection from "./config/db.js";
-import errorHandler from "./utils/errorHandler.js";
 import authRoutes from "./routes/auth.routes.js";
 import cartRoutes from "./routes/cart.routes.js";
-import wishlistRoutes from "./routes/wishlist.routes.js";
-import productRoutes from "./routes/product.routes.js";
-import uploadRoute from "./routes/upload.routes.js";
 import orderRoutes from "./routes/order.routes.js";
 import paymentRoutes from "./routes/payment.routes.js";
+import addressRoutes from "./routes/address.routes.js";
+import productRoutes from "./routes/product.routes.js";
+import uploadRoute from "./routes/upload.routes.js";
+import wishlistRoutes from "./routes/wishlist.routes.js";
+import errorHandler from "./utils/errorHandler.js";
 
 const app = express();
 
@@ -43,7 +44,16 @@ app.use(bodyParser.json());
 app.use(express.json());
 app.use(cookieParser());
 
-app.use("/api", [productRoutes, authRoutes, uploadRoute, cartRoutes, wishlistRoutes, orderRoutes, paymentRoutes]);
+app.use("/api", [
+  productRoutes,
+  authRoutes,
+  uploadRoute,
+  cartRoutes,
+  wishlistRoutes,
+  orderRoutes,
+  paymentRoutes,
+  addressRoutes,
+]);
 
 app.get("/", (req, res) => res.send("Connected"));
 
