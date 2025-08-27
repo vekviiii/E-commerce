@@ -15,6 +15,7 @@ import inventoryRoutes from "./routes/inventory.routes.js";
 import orderRoutes from "./routes/order.routes.js";
 import paymentRoutes from "./routes/payment.routes.js";
 import productRoutes from "./routes/product.routes.js";
+import reviewRoutes from "./routes/review.routes.js";
 import uploadRoute from "./routes/upload.routes.js";
 import wishlistRoutes from "./routes/wishlist.routes.js";
 import errorHandler from "./utils/errorHandler.js";
@@ -55,6 +56,7 @@ app.use("/api", [
   paymentRoutes,
   addressRoutes,
   inventoryRoutes,
+  reviewRoutes,
 ]);
 
 app.get("/", (req, res) => res.send("Connected"));
