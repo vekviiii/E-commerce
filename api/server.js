@@ -14,6 +14,8 @@ import cartRoutes from "./routes/cart.routes.js";
 import wishlistRoutes from "./routes/wishlist.routes.js";
 import productRoutes from "./routes/product.routes.js";
 import uploadRoute from "./routes/upload.routes.js";
+import orderRoutes from "./routes/order.routes.js";
+import paymentRoutes from "./routes/payment.routes.js";
 
 const app = express();
 
@@ -41,7 +43,7 @@ app.use(bodyParser.json());
 app.use(express.json());
 app.use(cookieParser());
 
-app.use("/api", [productRoutes, authRoutes, uploadRoute, cartRoutes, wishlistRoutes]);
+app.use("/api", [productRoutes, authRoutes, uploadRoute, cartRoutes, wishlistRoutes, orderRoutes, paymentRoutes]);
 
 app.get("/", (req, res) => res.send("Connected"));
 
